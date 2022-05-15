@@ -18,7 +18,7 @@ const Github = () => {
             <p>{user.login}</p>
           </div>
           <div className="avatar">
-            <img src={user.avatar_url} alt="No image" />
+            <img src={user.avatar_url} alt="" />
           </div>
         </>
       )}
