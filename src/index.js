@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import App from './pages/App/App';
+import store from './store';
+
+import './assets/css/index.css';
+import { AuthProvider } from './components/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Router>
-    <App/>
+    <Provider store={store}>
+      <AuthProvider>
+        <App/>
+      </AuthProvider>
+    </Provider>
   </Router>
 );
 
