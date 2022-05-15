@@ -1,18 +1,18 @@
-import { Link, Routes, Route } from 'react-router-dom';
-import Button from '../ui/Button';
-import Profile from '../../section/Profile';
-import Account from '../../section/Account';
-import './product.css';
-import {useEffect} from "react";
+import { Link, Routes, Route } from "react-router-dom";
+import Button from "../ui/Button";
+import Profile from "../../section/Profile";
+import Account from "../../section/Account";
+import "./product.css";
+import { useEffect } from "react";
 
 const Product = () => {
   const clickButton = () => {
-    console.log('Button clicked');
-  }
+    console.log("Button clicked");
+  };
 
   useEffect(() => {
-     console.log('khang2')
-  }, [])
+    console.log("khang2");
+  }, []);
 
   return (
     <div className="profile">
@@ -21,8 +21,12 @@ const Product = () => {
       <div className="container">
         <div className="menu">
           <ul>
-            <li><Link to="/product/profile">Profile</Link></li>
-            <li><Link to="/product/account">Account</Link></li>
+            <li>
+              <Link to="/product/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/product/account">Account</Link>
+            </li>
           </ul>
         </div>
         <div className="content">
@@ -36,9 +40,9 @@ const Product = () => {
       </div>
       <button onClick={clickButton}>OK</button>
 
-      <Button onClick={clickButton} text="Click Me"  />
+      <Button onClick={clickButton} text="Click Me" />
     </div>
-  )
-}
+  );
+};
 
 export default Product;

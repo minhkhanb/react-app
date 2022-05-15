@@ -1,9 +1,9 @@
-const INCREMENT = '@@app/INCREMENT';
-const DECREMENT = '@@app/DECREMENT';
+const INCREMENT = "@@app/INCREMENT";
+const DECREMENT = "@@app/DECREMENT";
 
 const AppActions = {
   INCREMENT,
-  DECREMENT
+  DECREMENT,
 };
 
 export default AppActions;

@@ -14,7 +14,6 @@
 }
 
 .single-layout {
-
   .login {
     @extend .single-layout;
 
@@ -33,7 +32,6 @@
       max-width: 400px;
       padding: 30px 20px;
     }
-
 
     .field {
       display: flex;
@@ -65,5 +63,4 @@
       cursor: pointer;
     }
   }
-
 }

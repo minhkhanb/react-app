@@ -1,4 +1,4 @@
-import AppActions from '../actionTypes/app';
+import AppActions from "../actionTypes/app";
 
 const rootState = {
   count: 0,
@@ -9,13 +9,13 @@ const rootReducer = (state = rootState, action) => {
     case AppActions.INCREMENT:
       return {
         ...state,
-        count: state.count + 1
+        count: state.count + 1,
       };
 
     case AppActions.DECREMENT:
       return {
         ...state,
-        count: state.count - 1
+        count: state.count - 1,
       };
 
     default:

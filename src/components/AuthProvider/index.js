@@ -1,5 +1,5 @@
-import React from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = React.createContext(null);
 
@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const signIn = (newUser, callback) => {
     setUser(newUser);
 
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback();
     }
   };
@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   const signOut = (callback) => {
     setUser(null);
 
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback();
     }
   };
@@ -29,9 +29,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={authValues}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>
   );
 };
 
@@ -44,7 +42,7 @@ export const RequireAuth = ({ children }) => {
     // trying to go to when they were redirected. This allows us to send them
     // along to that page after they login, which is a nicer user experience
     // than dropping them off on the home page.
-    return <Navigate to="/login" state={{ from: location }} replace/>;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;
@@ -56,23 +54,24 @@ export const AuthStatus = () => {
 
   React.useEffect(() => {
     if (!auth.user) {
-      navigate('/login');
+      navigate("/login");
     }
   }, [auth.user]);
 
   if (!auth.user) {
-    return (
-      <p>You are not login!</p>
-    );
+    return <p>You are not login!</p>;
   }
 
   return (
     <div>
       <p>Welcome {auth.user}</p>
 
-      <button onClick={() => {
-        auth.signOut(() => navigate('/'));
-      }}>Sign Out
+      <button
+        onClick={() => {
+          auth.signOut(() => navigate("/"));
+        }}
+      >
+        Sign Out
       </button>
     </div>
   );

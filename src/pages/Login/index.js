@@ -1,13 +1,13 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../components/AuthProvider';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../components/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const auth = React.useContext(AuthContext);
 
-  const from = (location.state && location.state.from.pathname) || '/';
+  const from = (location.state && location.state.from.pathname) || "/";
 
   React.useEffect(() => {
     if (auth.user) {
@@ -19,7 +19,7 @@ const Login = () => {
     evt.preventDefault();
 
     const formData = new FormData(evt.currentTarget);
-    const user = formData.get('email');
+    const user = formData.get("email");
 
     auth.signIn(user, () => {
       // Send them back to the page they tried to visit when they were
@@ -40,12 +40,12 @@ const Login = () => {
         <div className="login-fields">
           <div className="field">
             <label>Email</label>
-            <input type="text" name="email"/>
+            <input type="text" name="email" />
           </div>
 
           <div className="field">
             <label>Password</label>
-            <input type="password"/>
+            <input type="password" />
           </div>
         </div>
 

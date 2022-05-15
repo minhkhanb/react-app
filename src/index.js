@@ -1,23 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom';
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import App from './pages/App/App';
-import store from './store';
+import App from "./pages/App/App";
+import store from "./store";
 
-import './assets/css/index.css';
-import { AuthProvider } from './components/AuthProvider';
+import "./assets/css/index.css";
+import { AuthProvider } from "./components/AuthProvider";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Router>
     <Provider store={store}>
       <AuthProvider>
-        <App/>
+        <App />
       </AuthProvider>
     </Provider>
   </Router>

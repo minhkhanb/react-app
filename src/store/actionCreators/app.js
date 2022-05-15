@@ -1,13 +1,13 @@
-import AppActions from '../actionTypes/app';
+import AppActions from "../actionTypes/app";
 
 export const increment = () => {
   return {
-    type: AppActions.INCREMENT
+    type: AppActions.INCREMENT,
   };
 };
 
 export const decrement = () => {
   return {
-    type: AppActions.DECREMENT
+    type: AppActions.DECREMENT,
   };
 };
