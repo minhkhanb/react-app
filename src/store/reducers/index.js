@@ -1,4 +1,4 @@
-import AppActions from '../actionTypes';
+import AppActions from '../actionTypes/app';
 
 const rootState = {
   count: 0,
@@ -6,10 +6,16 @@ const rootState = {
 
 const rootReducer = (state = rootState, action) => {
   switch (action.type) {
-    case AppActions.SET_COUNT:
+    case AppActions.INCREMENT:
       return {
         ...state,
         count: state.count + 1
+      };
+
+    case AppActions.DECREMENT:
+      return {
+        ...state,
+        count: state.count - 1
       };
 
     default:
