@@ -9,6 +9,7 @@ import "../../assets/scss/main.scss";
 
 import Login from "../Login";
 import Home from "../Home";
+import Github from "../Github";
 import { decrement, increment } from "../../store/actionCreators/app";
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/github" element={<Github />} />
           <Route path="/product/*" element={<Product />} />
           <Route path="/customer" element={<Customer />} />
         </Routes>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/AuthProvider";
 
@@ -7,6 +7,8 @@ const Login = () => {
   const location = useLocation();
   const auth = React.useContext(AuthContext);
 
+  const [error, setError] = useState("");
+
   const from = (location.state && location.state.from.pathname) || "/";
 
   React.useEffect(() => {
@@ -14,6 +16,16 @@ const Login = () => {
       navigate(from, { replace: true });
     }
   }, []);
+
+  const validateEmail = (event) => {
+    let valueEmail = event.target.value;
+    console.log(valueEmail, valueEmail[1], valueEmail.length);
+    if (valueEmail.length < 6) {
+      setError("Email phai lon hon 6 ky tu");
+    } else {
+      setError("");
+    }
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -40,7 +52,8 @@ const Login = () => {
         <div className="login-fields">
           <div className="field">
             <label>Email</label>
-            <input type="text" name="email" />
+            <input onKeyUp={validateEmail} type="text" name="email" />
+            <p className="error">{error}</p>
           </div>
 
           <div className="field">
