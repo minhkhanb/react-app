@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { getUser } from "../../services/customer";
+import { getProductTypes } from "../../services/customer";
 
 const Github = () => {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    getUser().then((response) => {
-      setUser(response.data);
+    getProductTypes().then((response) => {
+     console.log('data: ', response.data)
     });
   }, []);
 
   return (
     <div className="github">
-      {user && (
+      {/* {user && (
         <>
           <div>
             <p>{user.login}</p>
@@ -21,7 +21,7 @@ const Github = () => {
             <img src={user.avatar_url} alt="" />
           </div>
         </>
-      )}
+      )} */}
     </div>
   );
 };

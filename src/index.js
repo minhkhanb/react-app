@@ -6,13 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./pages/App/App";
-import store from "./store";
+import configureStore from "./store";
 
 import "./assets/css/index.css";
 import { AuthProvider } from "./components/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
+const store = configureStore();
 root.render(
   <Router>
     <Provider store={store}>

@@ -1,5 +1,5 @@
 import api from "../api";
 
-export const getUser = () => {
-  return api.get("users/thor0103");
+export const getProductTypes = () => {
+  return api.get("/product-type");
 };

@@ -11,13 +11,16 @@ import Login from "../Login";
 import Home from "../Home";
 import Github from "../Github";
 import { decrement, increment } from "../../store/actionCreators/app";
+import { getProductTypeAction } from'../../store/actionCreators/thunk';
 
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
+  const listProduct = useSelector((state) => state.listProductTypes);
 
+  console.log('data list producttype: ', listProduct);
   React.useEffect(() => {
-    console.log("khang1");
+    dispatch(getProductTypeAction())
   }, []);
 
   return (
