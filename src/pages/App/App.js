@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../../components/Product";
@@ -11,11 +11,12 @@ import Login from "../Login";
 import Home from "../Home";
 import Github from "../Github";
 import { decrement, increment } from "../../store/actionCreators/app";
-import { getProductTypeAction } from'../../store/actionCreators/thunk';
+import { getProductTypeAction, addProductTypeAction } from '../../store/actionCreators/thunk';
 
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count);
+  const [nameProduct, setNameProduct] = useState();
   const listProduct = useSelector((state) => state.listProductTypes);
 
   console.log('data list producttype: ', listProduct);
@@ -23,6 +24,10 @@ function App() {
     dispatch(getProductTypeAction())
   }, []);
 
+  const handleAddProduct = () =>{
+    dispatch(addProductTypeAction(nameProduct))
+    setNameProduct('');
+  }
   return (
     <div className="App">
       <div className="header">
@@ -38,6 +43,19 @@ function App() {
           </li>
         </ul>
       </div>
+      <br />
+      <div>
+        <h2>List api test</h2>
+        <div>
+          <input value={nameProduct} onChange={(e)=> setNameProduct(e.target.value)} type="text" />
+          <button onClick={handleAddProduct}>Add Product</button>
+        </div>
+        <ul>
+          {listProduct.map((element, index) => (<li key={index}>{element.TypeName} <button>Sửa</button></li>))}
+        </ul>
+
+      </div>
+
 
       <div className="main-router">
         <Routes>
